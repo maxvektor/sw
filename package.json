@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run test -- --watchAll=false && react-scripts build",
+    "build": "yarn run test -- --watchAll=false && react-scripts build",
     "test": "react-scripts test",
     "test:e2e": "playwright test",
     "eject": "react-scripts eject"
@@ -43,5 +43,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.34.3"
-  }
+  },
+  "packageManager": "yarn@3.6.0"
 }
