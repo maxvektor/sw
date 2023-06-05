@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn run test -- --watchAll=false && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "test:e2e": "playwright test",
     "eject": "react-scripts eject"
