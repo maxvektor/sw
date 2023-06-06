@@ -9,6 +9,7 @@ module.exports = {
         "sourceType": "module",
         project: ['tsconfig.json']
     },
+    "ignorePatterns": ["**/dist/*", "**/node_modules/*", "**/__tests__/*"],
     "rules": {
     }
 };
