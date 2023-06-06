@@ -5,7 +5,8 @@ import MoviesList from "./components/MoviesList";
 function App() {
   return (
     <div>
-      <header className="App-header">STAR WARS MOVIES</header><MoviesList/>
+      <header className="App-header">STAR WARS MOVIES</header>
+      <MoviesList/>
     </div>
   );
 }
