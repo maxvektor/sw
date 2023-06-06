@@ -5,18 +5,17 @@ const MoviesList = () => {
   const [data, setData] = useState<any[]>([]);
 
   const getData = () => {
-    fetch("data.json", {
+    fetch("http://localhost:3001/movies", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
       .then(function (response) {
-        console.log(response);
         return response.json();
       })
       .then(function (myJson) {
-        console.log(myJson.results);
         setData(myJson.results);
       });
   };
