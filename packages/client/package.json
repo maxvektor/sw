@@ -20,6 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint --fix src",
+    "lint:ci": "eslint src",
     "test:ci": "CI=true react-scripts test --watchAll=false",
     "lint-staged": "npx lint-staged",
     "eject": "react-scripts eject"

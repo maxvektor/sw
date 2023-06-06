@@ -8,6 +8,8 @@
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "test": "jest --watchAll",
+    "lint:ci": "eslint src",
+    "lint": "eslint src --fix",
     "test:ci": "jest --watchAll=false",
     "lint-staged": "npx lint-staged"
   },
