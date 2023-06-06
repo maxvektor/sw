@@ -3916,6 +3916,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ansi-escapes@npm:^6.0.0":
+  version: 6.2.0
+  resolution: "ansi-escapes@npm:6.2.0"
+  dependencies:
+    type-fest: ^3.0.0
+  checksum: f0bc667d5f1ededc3ea89b73c34f0cba95473525b07e1290ddfd3fc868c94614e95f3549f5c4fd0c05424af7d3fd298101fb3d9a52a597d3782508b340783bd7
+  languageName: node
+  linkType: hard
+
 "ansi-html-community@npm:^0.0.8":
   version: 0.0.8
   resolution: "ansi-html-community@npm:0.0.8"
@@ -4722,7 +4731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:5.2.0":
+"chalk@npm:5.2.0, chalk@npm:^5.2.0":
   version: 5.2.0
   resolution: "chalk@npm:5.2.0"
   checksum: 03d8060277de6cf2fd567dc25fcf770593eb5bb85f460ce443e49255a30ff1242edd0c90a06a03803b0466ff0687a939b41db1757bec987113e83de89a003caa
@@ -8768,7 +8777,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-regex-util@npm:^29.4.3":
+"jest-regex-util@npm:^29.0.0, jest-regex-util@npm:^29.4.3":
   version: 29.4.3
   resolution: "jest-regex-util@npm:29.4.3"
   checksum: 96fc7fc28cd4dd73a63c13a526202c4bd8b351d4e5b68b1a2a2c88da3308c2a16e26feaa593083eb0bac38cca1aa9dd05025412e7de013ba963fb8e66af22b8a
@@ -9107,6 +9116,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-watch-typeahead@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "jest-watch-typeahead@npm:2.2.2"
+  dependencies:
+    ansi-escapes: ^6.0.0
+    chalk: ^5.2.0
+    jest-regex-util: ^29.0.0
+    jest-watcher: ^29.0.0
+    slash: ^5.0.0
+    string-length: ^5.0.1
+    strip-ansi: ^7.0.1
+  peerDependencies:
+    jest: ^27.0.0 || ^28.0.0 || ^29.0.0
+  checksum: 8685277ce1b96ec775882111ec55ce90a862cc57acb21ce94f8ac44a25f6fb34c7a7ce119e07b2d8ff5353a8d9e4f981cf96fa35532f71ddba6ca8fedc05bd8e
+  languageName: node
+  linkType: hard
+
 "jest-watcher@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-watcher@npm:27.5.1"
@@ -9138,7 +9164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-watcher@npm:^29.5.0":
+"jest-watcher@npm:^29.0.0, jest-watcher@npm:^29.5.0":
   version: 29.5.0
   resolution: "jest-watcher@npm:29.5.0"
   dependencies:
@@ -12722,6 +12748,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"slash@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "slash@npm:5.1.0"
+  checksum: 70434b34c50eb21b741d37d455110258c42d2cf18c01e6518aeb7299f3c6e626330c889c0c552b5ca2ef54a8f5a74213ab48895f0640717cacefeef6830a1ba4
+  languageName: node
+  linkType: hard
+
 "slice-ansi@npm:^3.0.0":
   version: 3.0.0
   resolution: "slice-ansi@npm:3.0.0"
@@ -12954,6 +12987,8 @@ __metadata:
     "@types/node": ^16.18.21
     "@types/react": ^18.0.29
     "@types/react-dom": ^18.0.11
+    jest: ^29.5.0
+    jest-watch-typeahead: ^2.2.2
     react: ^18.2.0
     react-dom: ^18.2.0
     react-scripts: 5.0.1
@@ -13811,6 +13846,13 @@ __metadata:
   version: 0.21.3
   resolution: "type-fest@npm:0.21.3"
   checksum: e6b32a3b3877f04339bae01c193b273c62ba7bfc9e325b8703c4ee1b32dc8fe4ef5dfa54bf78265e069f7667d058e360ae0f37be5af9f153b22382cd55a9afe0
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^3.0.0":
+  version: 3.11.1
+  resolution: "type-fest@npm:3.11.1"
+  checksum: 33be49e3b671c2ff3b5e320ef8c160c488205b08ab7631369116909a1baf2aebfcf45234c045e6902b8aa35730ac2bfd0655ea9e0fe3f8d26af9d99a16b07abd
   languageName: node
   linkType: hard
 
