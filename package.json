@@ -9,6 +9,7 @@
         "test:e2e": "playwright test",
         "test:unit": "yarn workspaces foreach run test:ci",
         "lint": "yarn workspaces foreach run lint:ci",
+        "format": "yarn workspaces foreach run prettier . --write",
         "prepare": "husky install"
     },
     "devDependencies": {
