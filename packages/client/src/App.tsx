@@ -1,11 +1,10 @@
-import React from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import MoviesList from "./components/MoviesList";
 
 function App() {
   return (
     <div>
-      <header className="App-header">STAR WARS MOVIES</header>
+      <header className={styles.header}>STAR WARS MOVIES</header>
       <MoviesList />
     </div>
   );
