@@ -7,16 +7,16 @@ const MoviesList: React.FC = () => {
   const { data } = useMovies();
 
   return (
-    <div>
+    <div data-testid='movies-list'>
       <div className={styles.container}>
         {data &&
           data.length > 0 &&
-          data.map((item) => (
-            <div className={styles.movie} key={item.episode_id}>
-              <Link to={`/movies/${item.episode_id}`} >
-                <div className={styles.title}>{item.title}</div>
+          data.map(({episode_id, title,opening_crawl}) => (
+            <div className={styles.movie} key={episode_id} data-testid={`movies-item-${episode_id}`}>
+              <Link to={`/movies/${episode_id}`} >
+                <div data-testid='movie-title' className={styles.title}>{title}</div>
               </Link>
-              <div>{item.opening_crawl}</div>
+              <div>{opening_crawl}</div>
             </div>
           ))}
       </div>

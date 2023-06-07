@@ -9,7 +9,7 @@ export const Movie: React.FC<{id: number}> = ({id}) => {
             <div>Movie {id}</div>
             {isLoading && <div>Loading...</div>}
             {isError && <div>Error</div>}
-            {data && <div>{data.title}</div>}
+            {data && <header data-testid={'movie-title'}>{data.title}</header>}
         </div>
     );
 }
