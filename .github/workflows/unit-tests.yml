@@ -20,6 +20,3 @@ jobs:
               run: yarn run test:unit
             - name: Run lint
               run: yarn run lint
-    build_on-render:
-      name: Build on Render
-      runs-on: ubuntu-latest
