@@ -1,27 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useMovies } from "../hooks/data";
 import "./MoviesList.css";
 
 const MoviesList = () => {
-  const [data, setData] = useState<any[]>([]);
-
-  const getData = () => {
-    fetch("http://localhost:3001/movies", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setData(myJson.results);
-      });
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+  const { data } = useMovies();
 
   return (
     <div>

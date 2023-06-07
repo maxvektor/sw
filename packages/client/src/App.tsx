@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <header className="App-header">STAR WARS MOVIES</header>
-      <MoviesList/>
+      <MoviesList />
     </div>
   );
 }
