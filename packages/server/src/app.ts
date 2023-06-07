@@ -4,6 +4,7 @@ import { getMovies, getMovie } from "./data";
 const app: Express = express();
 
 app.use((_req, res, next) => {
+  // TODO: only for development; Set right CORS headers ASAP
   res.append("Access-Control-Allow-Origin", ["*"]);
   res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   res.append("Access-Control-Allow-Headers", "Content-Type");
