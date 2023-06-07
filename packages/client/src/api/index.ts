@@ -1,7 +1,10 @@
 import { IMovie } from "../types";
+import { getServetBaseUrl } from "./baseURL";
+
+const BASE_URL = getServetBaseUrl();
 
 export const getMovies = async (): Promise<IMovie[]> =>
-  fetch("http://localhost:3001/movies", {
+  fetch(`${BASE_URL}/movies`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +15,7 @@ export const getMovies = async (): Promise<IMovie[]> =>
     .then((data) => data.results);
 
 export const getMovie = async (id:number): Promise<IMovie> =>
-  fetch(`http://localhost:3001/movies/${id}`, {
+  fetch(`${BASE_URL}/movies/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
