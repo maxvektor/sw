@@ -6,7 +6,7 @@ export const getServerBaseUrl = () => {
     return `https://maxvektor-starwars-server-pr-${PR_ID}.onrender.com`
   }
 
-  if(process.env.REACT_APP_VERCEL_ENV === 'production'){
+  if(process.env.REACT_APP_VERCEL_ENV === 'production' || process.env.NODE_ENV === 'production'){
     return `https://maxvektor-starwars-server.onrender.com`
   }
 
