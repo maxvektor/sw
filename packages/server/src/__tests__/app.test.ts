@@ -53,18 +53,6 @@ describe("app.ts routes", () => {
         expect(res.statusCode).toEqual(404);
         expect(res.text).toBe("Movie not found");
       });
-
-      test("should update movie", async () => {
-        const res = await request(app).put("/movies/4").send({
-          title: "Old Houp",
-        });
-
-        expect(res.statusCode).toEqual(200);
-
-        const updatedMovie = await request(app).get("/movies/4");
-        const movie = JSON.parse(updatedMovie.text);
-        expect(movie.title).toBe("Old Houp");
-      });
     });
   });
 });

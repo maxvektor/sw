@@ -53,6 +53,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
         <dt className={styles.definition_term}>title</dt>
         <dd className={styles.definition}>
           <input
+            data-testid="movie-title-input"
             required
             name="title"
             onChange={handleInputChange}
@@ -112,6 +113,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
       <div className={styles.actions}>
         <Button
           type="primary"
+          testId="save-button"
           onClick={() => {
             mutation.mutate({ ...data, ...state });
           }}

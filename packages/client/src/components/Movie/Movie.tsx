@@ -32,7 +32,7 @@ export const Movie: React.FC<{ id: number; edit?: boolean }> = ({
   return (
     <article className={styles.root}>
       <h1 className={styles.header} data-testid={"movie-title"}>
-        Episode {id}: {title}
+        Episode {id}: <span data-testid="movie-title-name">{title}</span>
       </h1>
 
       <div className={styles.created}>
@@ -49,7 +49,11 @@ export const Movie: React.FC<{ id: number; edit?: boolean }> = ({
           <dd className={styles.definition}>{producer}</dd>
         </dl>
       </div>
-      <Link className={styles.link} to={`/movies/${id}/edit`}>
+      <Link
+        data-testid="edit-button"
+        className={styles.link}
+        to={`/movies/${id}/edit`}
+      >
         Edit
       </Link>
     </article>
