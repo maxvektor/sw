@@ -40,5 +40,12 @@ test.describe('the movie page', () => {
     await expect(title).toContainText('Attack of the Clones');
   });
 
+  test('click on "star wars" should lead to the main page', async ({ page }) => {
+    await page.goto('/movies/2');
+    const pageTitle = page.getByTestId('site-logo');
+    await pageTitle.click();
+    const url = await page.url();
+    await expect(url).toContain('/');
+  });
 });
 
