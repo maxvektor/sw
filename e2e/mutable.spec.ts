@@ -19,6 +19,8 @@ const getServerBaseUrl = () => {
     // to run tests in VSCode
     return "http://localhost:3001";
   }
+
+  return `https://maxvektor-starwars-server.onrender.com`;
 };
 
 if (process.env.NODE_ENV !== "production") {
