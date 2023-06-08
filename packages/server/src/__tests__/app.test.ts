@@ -1,6 +1,7 @@
 import request from "supertest";
 
 import { app } from "../app";
+import { restoreBackup } from "../data";
 
 describe("app.ts routes", () => {
   describe("/ping", () => {
@@ -38,6 +39,20 @@ describe("app.ts routes", () => {
       const res = await request(app).get("/movies/100");
       expect(res.statusCode).toEqual(404);
       expect(res.text).toBe("Movie not found");
+    });
+
+    describe("/PUT /movies/:id", () => {
+      afterEach(async () => {
+        await restoreBackup();
+      });
+
+      test("should return 404 if movie not found", async () => {
+        const res = await request(app).put("/movies/100").send({
+          title: "Old Houp",
+        });
+        expect(res.statusCode).toEqual(404);
+        expect(res.text).toBe("Movie not found");
+      });
     });
   });
 });

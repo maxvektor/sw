@@ -1,9 +1,14 @@
 import React from "react";
+import { EditMovie } from "./EditMovie";
 
 import { useMovie } from "../../hooks/data";
 import styles from "./Movie.module.css";
+import { Link } from "react-router-dom";
 
-export const Movie: React.FC<{ id: number }> = ({ id }) => {
+export const Movie: React.FC<{ id: number; edit?: boolean }> = ({
+  id,
+  edit = false,
+}) => {
   const { data, isLoading, isError } = useMovie(id);
 
   if (isLoading) return <div>Loading...</div>;
@@ -20,10 +25,14 @@ export const Movie: React.FC<{ id: number }> = ({ id }) => {
   const year = creationDate.getFullYear();
   const monts = creationDate.getUTCMonth();
 
+  if (edit) {
+    return <EditMovie {...data!} />;
+  }
+
   return (
     <article className={styles.root}>
       <h1 className={styles.header} data-testid={"movie-title"}>
-        Episode {id}: {title}
+        Episode {id}: <span data-testid="movie-title-name">{title}</span>
       </h1>
 
       <div className={styles.created}>
@@ -35,10 +44,18 @@ export const Movie: React.FC<{ id: number }> = ({ id }) => {
         <dl>
           <dt className={styles.definition_term}>director</dt>
           <dd className={styles.definition}>{director}</dd>
+
           <dt className={styles.definition_term}>producer</dt>
           <dd className={styles.definition}>{producer}</dd>
         </dl>
       </div>
+      <Link
+        data-testid="edit-button"
+        className={styles.link}
+        to={`/movies/${id}/edit`}
+      >
+        Edit
+      </Link>
     </article>
   );
 };

@@ -25,6 +25,21 @@
   margin-left: 18px;
 }
 
+.link {
+  composes: link from "../utils.module.css";
+  font-weight: bold;
+}
+
+.definition_input {
+  composes: definition, glass from "../utils.module.css";
+  padding: 16px;
+  width: 75%;
+}
+
+textarea.definition_input {
+  height: 200px;
+}
+
 .description {
   display: grid;
   grid-template-columns: 3fr 1fr;

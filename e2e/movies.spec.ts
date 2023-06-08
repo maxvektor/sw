@@ -52,4 +52,14 @@ test.describe("the movie page", () => {
     const url = await page.url();
     await expect(url).toContain("/");
   });
+
+  test.describe("edit", () => {
+    test("should be shown when click on edit button", async ({ page }) => {
+      await page.goto("/movies/2");
+      const editButton = page.getByTestId("edit-button");
+      await editButton.click();
+      const url = await page.url();
+      await expect(url).toContain("/movies/2/edit");
+    });
+  });
 });

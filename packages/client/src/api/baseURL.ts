@@ -1,3 +1,4 @@
+// crutches to deal with vercel's dynamic env vars
 export const getServerBaseUrl = () => {
   const PR_ID = process.env.REACT_APP_VERCEL_GIT_PULL_REQUEST_ID;
 
