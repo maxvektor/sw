@@ -1,22 +1,22 @@
 {
-    "private": true,
-    "name": "star-wars",
-    "workspaces": [
-        "packages/client",
-        "packages/server"
-    ],
-    "scripts": {
-        "test:e2e": "playwright test",
-        "test:unit": "yarn workspaces foreach run test:ci",
-        "test": "concurrently \"yarn test:e2e\" \"yarn test:unit\"",
-        "lint": "yarn workspaces foreach run lint:ci",
-        "format": "yarn workspaces foreach run prettier . --write",
-        "prepare": "husky install",
-        "dev": "concurrently \"yarn workspace star-wars-server dev\" \"yarn workspace star-wars-client start\""
-    },
-    "devDependencies": {
-        "@playwright/test": "^1.34.3",
-        "concurrently": "^8.1.0",
-        "husky": "^8.0.3"
-    }
+  "private": true,
+  "name": "star-wars",
+  "workspaces": [
+    "packages/client",
+    "packages/server"
+  ],
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:unit": "yarn workspaces foreach run test:ci",
+    "test": "concurrently \"yarn test:e2e\" \"yarn test:unit\"",
+    "lint": "yarn workspaces foreach run lint:ci",
+    "format": "yarn workspaces foreach run prettier . --write",
+    "prepare": "husky install",
+    "dev": "concurrently \"yarn workspace star-wars-server dev\" \"yarn workspace star-wars-client start\""
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.34.3",
+    "concurrently": "^8.1.0",
+    "husky": "^8.0.3"
+  }
 }

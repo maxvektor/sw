@@ -9,7 +9,7 @@ export type IMovie = {
   planets: string[];
   starships: string[];
   vehicles: string[];
-  species:string[];
+  species: string[];
   created: string;
   edited: string;
   url: string;

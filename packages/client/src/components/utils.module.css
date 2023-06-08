@@ -1,53 +1,56 @@
 .glass {
-    border: 1px solid #808080;
-    background: rgba(255, 255, 255, 0.40);
-    border-radius: 16px;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.3px);
-    border: 1px solid rgba(255, 255, 255, 0.17);
+  border: 1px solid #808080;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.3px);
+  border: 1px solid rgba(255, 255, 255, 0.17);
 }
 
 .glass:hover {
-    transform: rotate3d(0,0,0,0deg) rotate(.2deg);
-    background: rgba(255, 255, 255, 0.60);
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+  transform: rotate3d(0, 0, 0, 0deg) rotate(0.2deg);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
 }
 
-.link, link:visited, link:hover, link:active {
-    text-decoration: none;
-    color: inherit;
+.link,
+link:visited,
+link:hover,
+link:active {
+  text-decoration: none;
+  color: inherit;
 }
 
 .link:hover {
-    animation: link-color 20s infinite;
+  animation: link-color 20s infinite;
 }
 
-@keyframes link-color{
-    0%{
-      color:#e73c7e;
-    }
-    25%{
-      color:#ee7752;
-    }
-    50%{
-      color:#23a6d5;
-    }
-    75%{
-      color:#23d5ab;
-    }
-    100%{
-        color:#9423ff;
-    }
+@keyframes link-color {
+  0% {
+    color: #e73c7e;
+  }
+  25% {
+    color: #ee7752;
+  }
+  50% {
+    color: #23a6d5;
+  }
+  75% {
+    color: #23d5ab;
+  }
+  100% {
+    color: #9423ff;
+  }
 }
 
 .h1 {
-    line-height: 2.5em;
-    font-size: 2em;
-    margin: 0.3em 0em;
+  line-height: 2.5em;
+  font-size: 2em;
+  margin: 0.3em 0em;
 }
 
 .h2 {
-    line-height: 2em;
-    font-size: 1.5em;
-    margin: 0.2em 0em;
+  line-height: 2em;
+  font-size: 1.5em;
+  margin: 0.2em 0em;
 }
