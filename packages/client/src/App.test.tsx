@@ -8,10 +8,10 @@ const queryClient = new QueryClient();
 test("renders the aplication", () => {
   render(
     <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </React.StrictMode>
   );
 
   const header = screen.getByText(/STAR WARS MOVIES/i);

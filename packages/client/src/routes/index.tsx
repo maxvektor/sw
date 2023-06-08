@@ -1,27 +1,25 @@
-import {
-    createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { Root } from "./Root";
 import MoviesList from "../components/MovieList/MoviesList";
-import {MovieRout} from "./MovieRout";
+import { MovieRout } from "./MovieRout";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
-      children: [
-        {
-          path: "/",
-          element: <MoviesList />,
-        },
-        {
-          path: "/movies",
-          element: <MoviesList />,
-        },
-        {
-          path: "/movies/:movieId",
-          element: <MovieRout />,
-        },
-      ],
-    },
-  ]);
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <MoviesList />,
+      },
+      {
+        path: "/movies",
+        element: <MoviesList />,
+      },
+      {
+        path: "/movies/:movieId",
+        element: <MovieRout />,
+      },
+    ],
+  },
+]);

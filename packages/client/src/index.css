@@ -6,31 +6,45 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* https://colorswall.com/search?q=Lightsaber */
-	background: linear-gradient(-45deg, #e73c7e, #ee7752, #23a6d5, #23d5ab, #9423ff);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #e73c7e,
+    #ee7752,
+    #23a6d5,
+    #23d5ab,
+    #9423ff
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
   padding-bottom: 5rem;
 }
 
 @media (prefers-reduced-motion) {
   body {
-    background: linear-gradient(to left top, #e73c7e, #ee7752, #23a6d5, #23d5ab, #9423ff);
-    background-attachment: fixed; 
+    background: linear-gradient(
+      to left top,
+      #e73c7e,
+      #ee7752,
+      #23a6d5,
+      #23d5ab,
+      #9423ff
+    );
+    background-attachment: fixed;
     animation: none;
   }
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 code {
