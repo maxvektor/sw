@@ -22,8 +22,6 @@ export const useMovie:IDataItem<IMovie> = (id: number) => {
   const queryClient = useQueryClient();
 
   const queryFn = async (id: number) =>{
-    debugger;
-    
     const movies = queryClient.getQueryData<IMovie[]>(["movies"]);
     // one more check for the case when we have a movie in the cache
     if(movies){
