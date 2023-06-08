@@ -8,6 +8,7 @@ import {
 
 import { router } from "./routes";
 import reportWebVitals from "./reportWebVitals";
+import "./normalize.css";
 import "./index.css";
 
 const queryClient = new QueryClient();
