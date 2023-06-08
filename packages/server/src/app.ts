@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import express, { type Express, type Request, type Response } from "express";
-import { getMovies, getMovie, updateMovie } from "./data";
+import { getMovies, getMovie, updateMovie, restoreBackup } from "./data";
 import bodyParser from "body-parser";
 
 const app: Express = express();
@@ -17,7 +18,6 @@ app.get("/ping", (_req: Request, res: Response) => {
   res.status(200).send("pong");
 });
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.get("/movies", async (_req: Request, res: Response) => {
   try {
     const data = await getMovies();
@@ -27,7 +27,6 @@ app.get("/movies", async (_req: Request, res: Response) => {
   }
 });
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.get("/movies/:id", async (_req: Request, res: Response) => {
   const movieId = parseInt(_req.params.id, 10);
   try {
@@ -44,7 +43,6 @@ app.get("/movies/:id", async (_req: Request, res: Response) => {
   }
 });
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.put("/movies/:id", async (_req: Request, res: Response) => {
   const movieId = parseInt(_req.params.id, 10);
   const newData = _req.body;
@@ -63,5 +61,17 @@ app.put("/movies/:id", async (_req: Request, res: Response) => {
     res.status(500).send(e);
   }
 });
+
+// only for development/testing
+if (process.env.NODE_ENV !== "production") {
+  app.post("/__restore", async (_req: Request, res: Response) => {
+    try {
+      await restoreBackup();
+      res.status(200).send("backup restored");
+    } catch (e) {
+      res.status(500).send(e);
+    }
+  });
+}
 
 export { app };
