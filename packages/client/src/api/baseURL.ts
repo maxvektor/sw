@@ -1,5 +1,6 @@
-export const getServetBaseUrl = () => {
+export const getServerBaseUrl = () => {
   const PR_ID = process.env.REACT_APP_VERCEL_GIT_PULL_REQUEST_ID;
+  console.log(process.env);
   
   if(PR_ID){
     return `https://maxvektor-starwars-server-pr-${PR_ID}.onrender.com`
