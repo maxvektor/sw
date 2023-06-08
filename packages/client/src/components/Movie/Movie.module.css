@@ -6,3 +6,34 @@
 .header {
   composes: h1 from "../utils.module.css";
 }
+
+.created {
+  text-align: right;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.definition_term {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.definition {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-bottom: 18px;
+  margin-left: 18px;
+}
+
+.description {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .description {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
