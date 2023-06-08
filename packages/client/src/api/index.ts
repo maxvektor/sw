@@ -1,7 +1,7 @@
 import { IMovie } from "../types";
-import { getServetBaseUrl } from "./baseURL";
+import { getServerBaseUrl } from "./baseURL";
 
-const BASE_URL = getServetBaseUrl();
+const BASE_URL = getServerBaseUrl();
 
 export const getMovies = async (): Promise<IMovie[]> =>
   fetch(`${BASE_URL}/movies`, {
