@@ -27,14 +27,14 @@ interface JSONData {
   results: IMovie[];
 }
 
-export const restoreBackup = async ():Promise<void> => {
+export const restoreBackup = async (): Promise<void> => {
   const backup = await fs.readFile(
     path.join(__dirname, "../data-backup.json"),
     { encoding: "utf8" }
   );
 
   await fs.writeFile(FILE_NAME, backup, { encoding: "utf8" });
-}
+};
 
 export const getMovies = async (): Promise<JSONData> => {
   const file = await fs.readFile(FILE_NAME, { encoding: "utf8" });
@@ -51,7 +51,10 @@ export const getMovie = async (id: number): Promise<IMovie | undefined> => {
   return movie;
 };
 
-export const updateMovie = async (  id: number,  newData: IMovie): Promise<void> => {
+export const updateMovie = async (
+  id: number,
+  newData: IMovie
+): Promise<void> => {
   const data = await getMovies();
   const movieIndex = data.results.findIndex((movie) => movie.episode_id === id);
 
@@ -62,4 +65,4 @@ export const updateMovie = async (  id: number,  newData: IMovie): Promise<void>
   data.results[movieIndex] = newData;
 
   await fs.writeFile(FILE_NAME, JSON.stringify(data), { encoding: "utf8" });
-}
+};

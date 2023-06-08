@@ -1,32 +1,32 @@
 .root {
-    display: inline-block;
-    padding: 12px;
-    text-decoration: none;
-    border-radius: 15px;
-    background-color: rgba(255,255,255,0.7);
-    border: 1px solid rgba(255,255,255,0.9);
-    backdrop-filter: blur(30px);
-    color: rgb(158 156 156 / 80%);
-    font-size: 1.1em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
- 
-  .root:hover {
-    background-color: rgba(255,255,255,0.2);
-  }
+  display: inline-block;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(30px);
+  color: rgb(158 156 156 / 80%);
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
 
-  .primary {
-    background-color: rgb(35 213 171 / 60%);
-    border: 1px solid rgb(35 213 171 / 90%);    
-    color: rgb(158 156 156 / 80%);
-  }
+.root:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
-  .primary:hover {
-    background-color: rgb(35 213 171 / 40%);
-    border: 1px solid rgb(35 213 171 / 50%);    
-    color: rgb(158 156 156 / 100%);
-  }
+.primary {
+  background-color: rgb(35 213 171 / 60%);
+  border: 1px solid rgb(35 213 171 / 90%);
+  color: rgb(158 156 156 / 80%);
+}
+
+.primary:hover {
+  background-color: rgb(35 213 171 / 40%);
+  border: 1px solid rgb(35 213 171 / 50%);
+  color: rgb(158 156 156 / 100%);
+}

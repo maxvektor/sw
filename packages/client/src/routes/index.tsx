@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/movies/:movieId/edit",
-        element: <MovieRout edit={true}/>,
+        element: <MovieRout edit={true} />,
       },
     ],
   },

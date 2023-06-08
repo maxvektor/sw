@@ -1,10 +1,9 @@
 import express, { type Express, type Request, type Response } from "express";
-import { getMovies, getMovie, updateMovie} from "./data";
-import bodyParser  from "body-parser";
+import { getMovies, getMovie, updateMovie } from "./data";
+import bodyParser from "body-parser";
 
 const app: Express = express();
 app.use(bodyParser.json());
-
 
 app.use((_req, res, next) => {
   // TODO: only for development; Set right CORS headers ASAP
@@ -40,7 +39,6 @@ app.get("/movies/:id", async (_req: Request, res: Response) => {
     }
 
     res.status(200).send(movie);
- 
   } catch (e) {
     res.status(500).send(e);
   }
@@ -49,17 +47,17 @@ app.get("/movies/:id", async (_req: Request, res: Response) => {
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.put("/movies/:id", async (_req: Request, res: Response) => {
   const movieId = parseInt(_req.params.id, 10);
-  const newData = _req.body;   
+  const newData = _req.body;
 
   try {
     const movie = await getMovie(movieId);
-    
+
     if (movie === undefined) {
       res.status(404).send("Movie not found");
       return;
     }
 
-    await updateMovie(movieId, {...movie, ...newData});
+    await updateMovie(movieId, { ...movie, ...newData });
     res.status(200).send("Movie updated");
   } catch (e) {
     res.status(500).send(e);
