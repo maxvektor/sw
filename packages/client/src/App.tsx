@@ -1,5 +1,5 @@
 import styles from "./App.module.css";
-import MoviesList from "./components/MoviesList";
+import MoviesList from "./components/MovieList/MoviesList";
 
 function App() {
   return (

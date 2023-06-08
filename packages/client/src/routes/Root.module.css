@@ -17,3 +17,7 @@
   composes: link from "../components/utils.module.css";
   pointer-events: none;
 }
+
+.main {
+  margin: 32px;
+}
