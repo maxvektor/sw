@@ -3,6 +3,7 @@ import { EditMovie } from "./EditMovie";
 
 import { useMovie } from "../../hooks/data";
 import styles from "./Movie.module.css";
+import { Link } from "react-router-dom";
 
 export const Movie: React.FC<{ id: number; edit?: boolean }> = ({
   id,
@@ -48,6 +49,9 @@ export const Movie: React.FC<{ id: number; edit?: boolean }> = ({
           <dd className={styles.definition}>{producer}</dd>
         </dl>
       </div>
+      <Link className={styles.link} to={`/movies/${id}/edit`}>
+        Edit
+      </Link>
     </article>
   );
 };

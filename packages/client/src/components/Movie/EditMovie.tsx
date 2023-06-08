@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import { updateMovie } from "../../api";
 
 import { Button } from "../Button/Button";
 import { IMovie } from "../../types";
@@ -7,8 +9,12 @@ import styles from "./Movie.module.css";
 
 export const EditMovie: React.FC<IMovie> = (data) => {
   const [state, setState] = useState<Partial<IMovie>>(data);
+  const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: (data: IMovie) => Promise.resolve(),
+    mutationFn: (data: IMovie) => updateMovie(data.episode_id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["movies", data.episode_id.toString()]);
+    },
   });
 
   const handleInputChange = (
@@ -103,8 +109,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
             mutation.mutate({ ...data, ...state });
           }}
         >
-          {" "}
-          {buttonText}{" "}
+          {buttonText}
         </Button>
       </div>
     </article>

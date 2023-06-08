@@ -25,6 +25,11 @@
   margin-left: 18px;
 }
 
+.link {
+  composes: link from "../utils.module.css";
+  font-weight: bold;
+}
+
 .definition_input {
   composes: definition, glass from "../utils.module.css";
   padding: 16px;
@@ -46,13 +51,4 @@ textarea.definition_input {
     grid-template-columns: 1fr;
     gap: 8px;
   }
-}
-
-.actions {
-  display: flex;
-  justify-content: right;
-  vertical-align: middle;
-  align-items: center;
-  height: 50px;
-  padding: 8px;
 }
