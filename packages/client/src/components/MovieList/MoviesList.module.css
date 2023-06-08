@@ -14,16 +14,16 @@
 
 .movie {
   padding: 16px;
-  composes: glass from "./utils.module.css";
+  composes: glass from "../utils.module.css";
 }
 
 
 .title {
   font-weight: bold;
   margin-bottom: 12px;
-  composes: link from "./utils.module.css";
+  composes: link from "../utils.module.css";
 }
 
 .heading {
-  composes: h2 from "./utils.module.css";
+  composes: h2 from "../utils.module.css";
 }

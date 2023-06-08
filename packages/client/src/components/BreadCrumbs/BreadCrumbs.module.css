@@ -1,0 +1,37 @@
+.root {
+    composes: glass from "../utils.module.css";
+    background: rgba(255, 255, 255, 0.60);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+    margin: 16px 0;
+}
+
+.root:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.60);
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: start;
+    padding: 16px;
+}
+
+.item {
+    margin: 0 16px;
+    font-weight: 800;
+}
+
+.item:not(:last-child)::after {
+    content: ">";
+    margin-left: 8px;
+    color: #000;
+}
+
+.item__link {
+    composes: link from "../utils.module.css";
+    text-transform: capitalize;
+}
+

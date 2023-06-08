@@ -1,0 +1,8 @@
+.root {
+    composes: glass from "../utils.module.css";
+    padding: 16px;
+}
+
+.header {
+    composes: h1 from "../utils.module.css";
+}

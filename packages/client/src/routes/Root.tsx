@@ -1,11 +1,13 @@
 import React from 'react';
 import { Outlet, NavLink } from "react-router-dom";
 
+import { BreadCrumbs } from '../components/BreadCrumbs/BreadCrumbs';
+
 import styles from './Root.module.css';
 
 export const  Root:React.FC = () => {
     return (
-        <div>
+        <>
             <NavLink
                 data-testid='site-logo'
                 to={`/`}
@@ -13,7 +15,10 @@ export const  Root:React.FC = () => {
                 >
                 <header>STAR WARS MOVIES</header>
             </NavLink>
-            <Outlet />
-        </div>
+            <main className={styles.main}>
+                <BreadCrumbs />
+                <Outlet />
+            </main>  
+        </>
     );
 }
