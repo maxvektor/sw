@@ -14,6 +14,13 @@ export const EditMovie: React.FC<IMovie> = (data) => {
     mutationFn: (data: IMovie) => updateMovie(data.episode_id, data),
     onSuccess: () => {
       queryClient.invalidateQueries(["movies", data.episode_id.toString()]);
+      queryClient.setQueryData(["movies"], (old: IMovie[] | undefined) =>
+        !old
+          ? undefined
+          : old.map((movie) =>
+              movie.episode_id === data.episode_id ? data : movie
+            )
+      );
     },
   });
 
