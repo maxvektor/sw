@@ -1,5 +1,5 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getMovies, getMovie } from "../api";
+import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
+import { getMovies, getMovie, updateMovie } from "../api";
 import type { IMovie } from "../types";
 
 type IDataReturnType<T> = {
@@ -39,4 +39,39 @@ export const useMovie: IDataItem<IMovie> = (id: number) => {
   const { data, isLoading, isError } = query;
 
   return { data, isLoading, isError };
+};
+
+export const useUpdateMovieMutation = (id: number) => {
+  const queryClient = useQueryClient();
+  type IMovieUpdate = Pick<
+    IMovie,
+    "episode_id" | "director" | "producer" | "opening_crawl"
+  >;
+  let newMovieData: IMovieUpdate;
+
+  const mutation = useMutation({
+    mutationFn: (data: IMovieUpdate) => {
+      newMovieData = data;
+      return updateMovie(id, data);
+    },
+    onSuccess: () => {
+      newMovieData = newMovieData as IMovieUpdate;
+      queryClient.invalidateQueries([
+        "movies",
+        newMovieData.episode_id.toString(),
+      ]);
+      queryClient.setQueryData(["movies"], (old: IMovie[] | undefined) =>
+        !old
+          ? undefined
+          : old.map((movie) => {
+              if (movie.episode_id === newMovieData.episode_id) {
+                return { ...newMovieData, ...movie };
+              }
+              return movie;
+            })
+      );
+    },
+  });
+
+  return mutation;
 };

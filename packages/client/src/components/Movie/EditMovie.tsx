@@ -1,35 +1,21 @@
 import React, { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-import { updateMovie } from "../../api";
 
 import { Button } from "../Button/Button";
+import { useUpdateMovieMutation } from "../../hooks/data";
+
 import { IMovie } from "../../types";
+
 import styles from "./Movie.module.css";
 
 export const EditMovie: React.FC<IMovie> = (data) => {
   const [state, setState] = useState<Partial<IMovie>>(data);
-  const queryClient = useQueryClient();
-  const mutation = useMutation({
-    mutationFn: (data: IMovie) => updateMovie(data.episode_id, data),
-    onSuccess: () => {
-      queryClient.invalidateQueries(["movies", data.episode_id.toString()]);
-      queryClient.setQueryData(["movies"], (old: IMovie[] | undefined) =>
-        !old
-          ? undefined
-          : old.map((movie) =>
-              movie.episode_id === data.episode_id ? data : movie
-            )
-      );
-    },
-  });
+  const mutation = useUpdateMovieMutation(data.episode_id);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const name = event.target.name;
     const value = event.target.value;
-    console.log(name, value, event);
     setState({ ...state, [name]: value });
   };
 
@@ -53,6 +39,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
         <dt className={styles.definition_term}>title</dt>
         <dd className={styles.definition}>
           <input
+            disabled={mutation.isLoading}
             data-testid="movie-title-input"
             required
             name="title"
@@ -67,6 +54,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
         <dd className={styles.definition}>
           <input
             required
+            disabled={mutation.isLoading}
             name="episode_id"
             onChange={handleInputChange}
             className={styles.definition_input}
@@ -79,6 +67,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
         <dd className={styles.definition}>
           <textarea
             required
+            disabled={mutation.isLoading}
             name="opening_crawl"
             onChange={handleInputChange}
             className={styles.definition_input}
@@ -90,6 +79,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
         <dd className={styles.definition}>
           <input
             required
+            disabled={mutation.isLoading}
             name="director"
             onChange={handleInputChange}
             className={styles.definition_input}
@@ -102,6 +92,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
         <dd className={styles.definition}>
           <input
             required
+            disabled={mutation.isLoading}
             name="director"
             onChange={handleInputChange}
             className={styles.definition_input}
@@ -112,6 +103,7 @@ export const EditMovie: React.FC<IMovie> = (data) => {
       </dl>
       <div className={styles.actions}>
         <Button
+          disabled={mutation.isLoading}
           type="primary"
           testId="save-button"
           onClick={() => {
